@@ -12,7 +12,8 @@ formEl.addEventListener('submit', (e) => {
   textSearch.innerHTML = 'Loading...';
   textFullInfo.innerHTML = '';
 
-  const url = 'http://localhost:4000/weather?search=' + value;
+  // const url = 'http://localhost:4000/weather?search=' + value;
+  const url = '/weather?search=' + value;
   inputEl.value = '';
   fetch(url)
     .then((res) => res.json())
