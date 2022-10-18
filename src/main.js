@@ -3,15 +3,26 @@ const path = require('path');
 const express = require('express');
 const app = express();
 const { askGeo, askWeather } = require('../utils/api');
-const PORT = process.env.PORT || 4444;
+const PORT = process.env.PORT || 4000;
 
 const publicDirectoryPath = path.join(__dirname, '../public');
+// const viewsPath = path.join(__dirname, '../views');
 app.use(express.static(publicDirectoryPath));
+
+app.set('view engine', 'ejs');
+// app.set('views', viewsPath);
+
+app.get('', (req, res) => {
+  res.render('index', {
+    pageTitle: 'Weather App',
+    title: 'Weather',
+  });
+});
 
 app.get('/weather', function (req, res) {
   if (!req.query.search) {
     return res.send({
-      errMes: 'Please provide a search keyword!',
+      errMessage: 'Please provide a search keyword!',
     });
   }
 
@@ -29,7 +40,7 @@ app.get('/weather', function (req, res) {
 
       const { temperature, weather_descriptions } = data.current;
 
-      return res.send({
+      const relatedData = {
         searchedLocation: location,
         weatherDescription: weather_descriptions[0],
         weatherTemperature: temperature,
@@ -37,8 +48,29 @@ app.get('/weather', function (req, res) {
         weatherCountryName: data.location.country,
         weatherRegionName: data.location.region,
         weatherLocalTime: data.location.localtime,
+      };
+
+      const strToSend = `In ${relatedData.weatherLocationName} weather is ${relatedData.weatherDescription}. Temperature is ${relatedData.weatherTemperature} &deg; degree (celsius). Current time is: ${relatedData.weatherLocalTime}`;
+
+      return res.send({
+        searchedLocation: location,
+        strToSend,
       });
     });
+  });
+});
+
+app.get('/about', (req, res) => {
+  res.render('about', {
+    pageTitle: 'About',
+    title: 'About',
+  });
+});
+
+app.get('*', (req, res) => {
+  res.render('404', {
+    pageTitle: '404',
+    title: '404',
   });
 });
 
