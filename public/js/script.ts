@@ -25,8 +25,8 @@ formEl.addEventListener('submit', (e: SubmitEvent) => {
   textSearch.innerHTML = 'Loading...';
   textFullInfo.innerHTML = '';
 
-  const url = 'http://localhost:4444/weather?search=' + value;
-  // const url = '/weather?search=' + value;
+  // const url = 'http://localhost:4444/weather?search=' + value;
+  const url = '/weather?search=' + value;
   inputEl.value = '';
   fetch(url)
     .then((res: Response) => res.json())
