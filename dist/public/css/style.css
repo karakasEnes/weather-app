@@ -1,0 +1,118 @@
+html {
+  font-family: 'Georgia', sans-serif;
+  font-size: 62.5%;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 0;
+  flex-direction: column;
+  width: 70vw;
+  height: 70vh;
+  box-shadow: 0.2rem 0.2rem 0.1rem #222, -0.2rem -0.2rem 0.1rem #222;
+  row-gap: 3rem;
+  position: relative;
+}
+
+.content {
+  position: absolute;
+  top: 8rem;
+  left: 20rem;
+}
+
+.search-input {
+  width: 45rem;
+  padding: 1rem 2rem;
+  font-size: 2rem;
+  letter-spacing: 0.2rem;
+  margin: 2rem 0.5rem 6rem 0;
+}
+
+.btn-search {
+  padding: 1rem 2rem;
+  border-radius: 0.4rem;
+  font-size: 2rem;
+  border: none;
+  outline: none;
+}
+
+.btn-search:hover {
+  background-color: tomato;
+  color: white;
+}
+
+.btn-search:active {
+  transform: scale(0.9);
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+.fetched-container {
+  box-shadow: 0.3rem 0.3rem 0.1rem rgba(102, 102, 102, 0.123);
+}
+
+.searched-location {
+  font-size: 2.2rem;
+  margin-bottom: 0.6rem;
+}
+
+.full-info {
+  font-size: 1.9rem;
+}
+
+nav {
+  display: flex;
+  column-gap: 5rem;
+  font-size: 2rem;
+  justify-content: space-between;
+}
+
+nav a {
+  transition: transform 0.3s;
+  color: black;
+}
+
+nav a:hover {
+  transform: scale(1.2);
+  color: rgb(185, 57, 211);
+}
+
+.footer {
+  font-size: 1.3rem;
+  opacity: 0.6;
+}
+
+/* about page */
+.about-content {
+  margin-top: 3rem;
+}
+
+.about-content p {
+  font-size: 2rem;
+  margin-bottom: 3rem;
+}
+
+.about-content li {
+  list-style-type: none;
+  padding-left: 3rem;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
