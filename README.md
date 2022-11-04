@@ -1,3 +1,3 @@
-# JS & node.js & TypeScript Application!
+# JS & node.js + Express & TypeScript Application!
 
 ## Live: https://sharecodecamp-weather.herokuapp.com/
